@@ -3,12 +3,15 @@
   "framework": null,
   "functions": {
     "api/index.php": {
-      "runtime": "vercel-php@0.6.0" 
+      // UBAH VERSI INI
+      "runtime": "vercel-php@0.7.1" 
+      // Versi 0.7.x seringkali menggunakan Node.js versi yang lebih baru (20.x).
+      // Anda bisa cek repositori vercel-php untuk versi terbaru yang stabil.
     }
   },
   "routes": [
     { "src": "/build/(.*)", "dest": "/public/build/$1" }, 
-    { "src": "/(.*)", "dest": "/routes/api/index.php" }
+    { "src": "/(.*)", "dest": "/api/index.php" }
   ],
   "public": true,
   "outputDirectory": "public"
