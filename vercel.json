@@ -4,13 +4,10 @@
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.6.0" 
-      // Ganti versi jika diperlukan. Cek dokumentasi vercel-php.
     }
   },
   "routes": [
-    // Rute untuk aset (CSS, JS) yang dibuat oleh Vite/Mix
     { "src": "/build/(.*)", "dest": "/public/build/$1" }, 
-    // Rute default: Arahkan semua request ke serverless function
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
   "public": true,
