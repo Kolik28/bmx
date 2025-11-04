@@ -1,27 +1,18 @@
 {
-    "version": 2,
-      "framework": null,
-    "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.6.0" }
-    },
-    "routes": [{
-        "src": "/(.*)",
-        "dest": "/api/index.php"
-    }],
-    "env": {
-        "APP_ENV": "production",
-        "APP_DEBUG": "true",
-        "APP_URL": "0.0.0.0",
-
-        "APP_CONFIG_CACHE": "/tmp/config.php",
-        "APP_EVENTS_CACHE": "/tmp/events.php",
-        "APP_PACKAGES_CACHE": "/tmp/packages.php",
-        "APP_ROUTES_CACHE": "/tmp/routes.php",
-        "APP_SERVICES_CACHE": "/tmp/services.php",
-        "VIEW_COMPILED_PATH": "/tmp",
-
-        "CACHE_DRIVER": "array",
-        "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie"
+  "version": 2,
+  "framework": null,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.6.0" 
+      // Ganti versi jika diperlukan. Cek dokumentasi vercel-php.
     }
+  },
+  "routes": [
+    // Rute untuk aset (CSS, JS) yang dibuat oleh Vite/Mix
+    { "src": "/build/(.*)", "dest": "/public/build/$1" }, 
+    // Rute default: Arahkan semua request ke serverless function
+    { "src": "/(.*)", "dest": "/api/index.php" }
+  ],
+  "public": true,
+  "outputDirectory": "public"
 }
